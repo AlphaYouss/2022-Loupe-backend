@@ -1,0 +1,14 @@
+version: "2"
+services:
+  loupe-backend:
+    image: "loupegroup/loupe_api.gateway"
+    ports:
+      - "8080:80"
+      
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: db
+    hostname: db
+    environment:
+      SA_PASSWORD: ${{ secrets.SA_PASSWORD }}
+      ACCEPT_EULA: "Y"
